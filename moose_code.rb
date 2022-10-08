@@ -43,12 +43,15 @@ def decode_word(word)
     decode_char(letter)
     @current_word += decode_char(letter)
   end
+  @current_word
 end
 
 # method to decode an entire message in Morse code
 def decode_message(message)
   @words = message.split('   ')
+  @current_message = ''
   @words.each do |word|
-    decode_word(word)
+    @current_message += decode_word(word) + ' '
   end
+  @current_message.strip
 end
